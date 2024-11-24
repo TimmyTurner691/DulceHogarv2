@@ -83,10 +83,20 @@ public class EjecucionAplicacion extends javax.swing.JFrame {
 
         mnt_pagar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnt_pagar.setText("Pagar Cuota Mensual");
+        mnt_pagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnt_pagarActionPerformed(evt);
+            }
+        });
         jMenu2.add(mnt_pagar);
 
         mnt_consultar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnt_consultar.setText("Consultar Monto Total Cancelado");
+        mnt_consultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnt_consultarActionPerformed(evt);
+            }
+        });
         jMenu2.add(mnt_consultar);
 
         mnt_numero.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -144,6 +154,16 @@ public class EjecucionAplicacion extends javax.swing.JFrame {
         new VerDatosSocio().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_mnt_datosActionPerformed
+
+    private void mnt_pagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnt_pagarActionPerformed
+        new CancelarCuota().setVisible(true);
+        this.setVisible(false);        
+    }//GEN-LAST:event_mnt_pagarActionPerformed
+
+    private void mnt_consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnt_consultarActionPerformed
+        new MontoTotal().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_mnt_consultarActionPerformed
 
     /**
      * @param args the command line arguments

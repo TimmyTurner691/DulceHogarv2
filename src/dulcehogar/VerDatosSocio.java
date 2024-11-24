@@ -53,6 +53,12 @@ public class VerDatosSocio extends javax.swing.JFrame {
 
         jLabel1.setText("Ingrese Rut de Socio");
 
+        txt_rut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_rutActionPerformed(evt);
+            }
+        });
+
         btn_buscar.setText("Buscar");
         btn_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,6 +202,10 @@ public class VerDatosSocio extends javax.swing.JFrame {
         txt_comuna.setText(socio.getComuna());
         txt_telefono.setText(socio.getTelefono());
     }//GEN-LAST:event_btn_buscarActionPerformed
+
+    private void txt_rutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_rutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_rutActionPerformed
 
     private static Socio encontrarSocio(String rut) {
 

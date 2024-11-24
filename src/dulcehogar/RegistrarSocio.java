@@ -354,7 +354,7 @@ public class RegistrarSocio extends javax.swing.JFrame {
         
     }
     
-    private static String validarRut(String rut) {
+    public static String validarRut(String rut) {
 
         // Si rut no es de largo 12, es invalido.
         if (rut.length() != 12) {
@@ -454,10 +454,6 @@ public class RegistrarSocio extends javax.swing.JFrame {
     public static String validarDomicilio(String domicilio) {
         if (domicilio.equals("")) {
             // Si el usuario cancela, se sale del ciclo
-            JOptionPane.showMessageDialog(null, "La direccion ingresada no es valida.", "Error", JOptionPane.ERROR_MESSAGE);
-            return "";
-        }
-        if (!validarDomicilioValida(domicilio)) {
             JOptionPane.showMessageDialog(null, "La direccion ingresada no es valida.", "Error", JOptionPane.ERROR_MESSAGE);
             return "";
         }

@@ -4,6 +4,11 @@
  */
 package dulcehogar;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Optional;
+import javax.swing.JOptionPane;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author claud
@@ -32,12 +37,12 @@ public class CancelarCuota extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jbuttbuscar = new javax.swing.JButton();
-        textfrutsoc = new javax.swing.JTextField();
+        txt_rut = new javax.swing.JTextField();
         jbuttregresar = new javax.swing.JButton();
-        textfingmont = new javax.swing.JTextField();
+        txt_amount = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        textfnumcuota = new javax.swing.JTextField();
+        txt_numcuota = new javax.swing.JTextField();
         jbuttpagar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -53,7 +58,6 @@ public class CancelarCuota extends javax.swing.JFrame {
         jCheckBoxMenuItem1.setText("Menu");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(709, 381));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -71,9 +75,9 @@ public class CancelarCuota extends javax.swing.JFrame {
             }
         });
 
-        textfrutsoc.addActionListener(new java.awt.event.ActionListener() {
+        txt_rut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textfrutsocActionPerformed(evt);
+                txt_rutActionPerformed(evt);
             }
         });
 
@@ -86,10 +90,9 @@ public class CancelarCuota extends javax.swing.JFrame {
             }
         });
 
-        textfingmont.setText("Ingrese monto..");
-        textfingmont.addActionListener(new java.awt.event.ActionListener() {
+        txt_amount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textfingmontActionPerformed(evt);
+                txt_amountActionPerformed(evt);
             }
         });
 
@@ -99,16 +102,20 @@ public class CancelarCuota extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setText("Numero Cuota");
 
-        textfnumcuota.setText("Ingrese el numero de cuota");
-        textfnumcuota.addActionListener(new java.awt.event.ActionListener() {
+        txt_numcuota.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textfnumcuotaActionPerformed(evt);
+                txt_numcuotaActionPerformed(evt);
             }
         });
 
         jbuttpagar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jbuttpagar.setText("Pagar");
         jbuttpagar.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), new java.awt.Color(255, 255, 255)));
+        jbuttpagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbuttpagarActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("Socio");
 
@@ -148,24 +155,23 @@ public class CancelarCuota extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addGap(212, 212, 212)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(textfnumcuota, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(textfingmont, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(textfrutsoc, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jbuttpagar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt_numcuota, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_amount, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jbuttbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_rut, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(228, 228, 228))
             .addGroup(layout.createSequentialGroup()
-                .addGap(174, 174, 174)
-                .addComponent(jbuttpagar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(174, 510, Short.MAX_VALUE)
                 .addComponent(jbuttregresar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addGap(41, 41, 41))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(133, 133, 133)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(177, 177, 177)
-                        .addComponent(jbuttbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -179,16 +185,16 @@ public class CancelarCuota extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textfrutsoc, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jbuttbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textfingmont, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_rut, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jbuttbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                    .addComponent(txt_amount))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(textfnumcuota)
+                    .addComponent(txt_numcuota)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -201,24 +207,83 @@ public class CancelarCuota extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbuttbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttbuscarActionPerformed
-        // TODO add your handling code here:
+        String RUT = RegistrarSocio.validarRut(txt_rut.getText());
+        
+        Optional<Socio> socioEncontrado = EjecucionAplicacion.getSocios()
+                .stream()
+                .filter(socio -> socio.getRut().equals(RUT))
+                .findFirst();
+        
+        if (socioEncontrado.isPresent()) {
+            JOptionPane.showMessageDialog(
+                    null,
+                    "¡Socio encontrado con exito!", 
+                    "Exito",
+                    JOptionPane.INFORMATION_MESSAGE);
+        } else {
+           JOptionPane.showMessageDialog(
+                    null,
+                    "¡Socio no ha sido encontrado, intentelo de nuevo!", 
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+        
+        
+        
     }//GEN-LAST:event_jbuttbuscarActionPerformed
-
+    
+  
     private void jbuttregresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttregresarActionPerformed
-        System.exit(0);
+        new EjecucionAplicacion().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jbuttregresarActionPerformed
 
-    private void textfingmontActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfingmontActionPerformed
+    private void txt_amountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_amountActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textfingmontActionPerformed
+    }//GEN-LAST:event_txt_amountActionPerformed
 
-    private void textfnumcuotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfnumcuotaActionPerformed
+    private void txt_numcuotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_numcuotaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textfnumcuotaActionPerformed
+    }//GEN-LAST:event_txt_numcuotaActionPerformed
 
-    private void textfrutsocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfrutsocActionPerformed
+    private void txt_rutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_rutActionPerformed
         
-    }//GEN-LAST:event_textfrutsocActionPerformed
+    }//GEN-LAST:event_txt_rutActionPerformed
+
+    private void jbuttpagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttpagarActionPerformed
+        // TODO add your handling code here:
+        int monto = Integer.parseInt(txt_amount.getText().replace(".", ""));
+        int cantidadCuotas = Integer.parseInt(txt_numcuota.getText());
+        
+        if (monto <= 0 || cantidadCuotas <= 0) {
+            JOptionPane.showMessageDialog(null, "La cuota y el monto"
+                    + "deben ser mayores a 0", 
+                    "Error", 
+                    JOptionPane.ERROR_MESSAGE);
+        }
+        
+
+        String RUT = txt_rut.getText();
+        
+        Optional<Socio> socioEncontrado = EjecucionAplicacion.getSocios()
+                .stream()
+                .filter(socio -> socio.getRut().equals(RUT))
+                .findFirst();
+        
+    
+        socioEncontrado.ifPresent(socio -> socio.cancelarCuota(monto));
+        
+        JOptionPane.showMessageDialog(
+            null, 
+            "¡Cuota pagada con exito!", 
+            "Exito!", 
+            JOptionPane.INFORMATION_MESSAGE
+        );
+        
+        new EjecucionAplicacion().setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_jbuttpagarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -272,8 +337,8 @@ public class CancelarCuota extends javax.swing.JFrame {
     private javax.swing.JButton jbuttbuscar;
     private javax.swing.JButton jbuttpagar;
     private javax.swing.JButton jbuttregresar;
-    private javax.swing.JTextField textfingmont;
-    private javax.swing.JTextField textfnumcuota;
-    private javax.swing.JTextField textfrutsoc;
+    private javax.swing.JTextField txt_amount;
+    private javax.swing.JTextField txt_numcuota;
+    private javax.swing.JTextField txt_rut;
     // End of variables declaration//GEN-END:variables
 }

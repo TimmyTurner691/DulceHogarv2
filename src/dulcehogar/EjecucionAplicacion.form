@@ -45,6 +45,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Pagar Cuota Mensual"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnt_pagarActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mnt_consultar">
               <Properties>
@@ -53,6 +56,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Consultar Monto Total Cancelado"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnt_consultarActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mnt_numero">
               <Properties>

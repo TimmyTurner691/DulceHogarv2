@@ -26,8 +26,7 @@ public class Persona {
         this.comuna = "";
         this.telefono = "";
     }
-
-    // Getters and setters for optional fields
+    
     public String getRut() {
         return rut;
     }

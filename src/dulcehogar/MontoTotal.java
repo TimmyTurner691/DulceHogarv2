@@ -183,6 +183,7 @@ public class MontoTotal extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt_totalcanceladoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_totalcanceladoActionPerformed
@@ -281,8 +282,6 @@ public class MontoTotal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton jbuttregresar;
-    private javax.swing.JButton jbuttregresar1;
     private javax.swing.JTextField txt_rut;
     private javax.swing.JTextField txt_totalcancelado;
     // End of variables declaration//GEN-END:variables

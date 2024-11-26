@@ -4,6 +4,9 @@
  */
 package dulcehogar;
 
+import java.util.Arrays;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author claud
@@ -28,14 +31,14 @@ public class ConsultarNumeroCuotas extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        txt_rut = new javax.swing.JTextField();
+        btn_buscar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        txt_cuotas = new javax.swing.JTextField();
+        btn_volver = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        mnt_volver = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,37 +47,44 @@ public class ConsultarNumeroCuotas extends javax.swing.JFrame {
 
         jLabel2.setText("Ingrese RUT Socio");
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setText("BUSCAR");
-        jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_buscar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_buscar.setText("BUSCAR");
+        btn_buscar.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
+        btn_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_buscarActionPerformed(evt);
             }
         });
 
         jLabel3.setText("Numero de cuotas por cancelar");
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txt_cuotas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txt_cuotasActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton2.setText("CERRAR");
-        jButton2.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btn_volver.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_volver.setText("Volver");
+        btn_volver.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
+        btn_volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btn_volverActionPerformed(evt);
             }
         });
 
-        jMenu1.setText("File");
+        jMenu1.setText("Volver a inicio");
+
+        mnt_volver.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0));
+        mnt_volver.setText("Volver");
+        mnt_volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnt_volverActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mnt_volver);
+
         jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -85,20 +95,21 @@ public class ConsultarNumeroCuotas extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(215, 215, 215)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_rut, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_cuotas, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(226, 226, 226)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(135, Short.MAX_VALUE))
+                        .addComponent(btn_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(173, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(212, 212, 212))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,32 +119,57 @@ public class ConsultarNumeroCuotas extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_rut, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_cuotas, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
+        String rutSocio = ConsultarNumeroCuotas.validarRut(txt_rut.getText());
+        
+        if (rutSocio.equals("")) {
+            JOptionPane.showMessageDialog(null, "RUT invalido! "
+                    + "Por favor, intente de nuevo.", 
+                    "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        Socio socio = ConsultarNumeroCuotas.encontrarSocio(rutSocio);
+        
+        if (socio == null) {
+            JOptionPane.showMessageDialog(null, "¡Socio no "
+                    + "encontrado! Por favor, intente de nuevo.", "Error", 
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        txt_cuotas.setText(String.valueOf(socio.getNumeroCuota()-1));
+    }//GEN-LAST:event_btn_buscarActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txt_cuotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cuotasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txt_cuotasActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void btn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_volverActionPerformed
+        new EjecucionAplicacion().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_volverActionPerformed
+
+    private void mnt_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnt_volverActionPerformed
+        new EjecucionAplicacion().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_mnt_volverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -169,17 +205,74 @@ public class ConsultarNumeroCuotas extends javax.swing.JFrame {
             }
         });
     }
+    
+    private static String validarRut(String rut) {
+
+        // Si rut no es de largo 12, es invalido.
+        if (rut.length() != 12) {
+            return "";
+
+        } else {
+            if (!validarIndicesRut(rut)) return "";
+
+            return rut; 
+        }
+    }
+    
+    private static boolean validarIndicesRut(String rut) {
+        // Indices donde deberia haber numeros en el RUT.
+        Integer[] indicesNumerosRut = {0, 1, 3, 4, 5, 7, 8, 9};
+
+        // Lista de caracteres numericos validos.
+        String[] numeros = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
+
+        // Revisar cada indice de rut para verificar el tipo de 
+        // caracter.
+        for (int i = 0; i <= 11; i++) {
+            String indice = String.valueOf(rut.charAt(i));
+
+            // Revisar si los caracteres numericos de rut son numeros.
+            if (Arrays.asList(indicesNumerosRut).contains(i) && 
+                    !Arrays.asList(numeros).contains(indice)) {
+                System.out.println("RUT Invalido"); 
+
+                return false;
+
+            // Revisar si los puntos, guion, y dv estan en las posiciones correctas.
+            } else if ((i == 2 || i == 6) && !indice.equals(".") &&
+                    (i == 10 && !indice.equals("-")) &&
+                    i == 11 && !Arrays.asList(numeros).contains(indice) && 
+                    !indice.equalsIgnoreCase("K")) {
+                System.out.println("RUT Invalido!");
+
+                return false;
+            }
+        }
+
+        return true;
+    }
+    
+    private static Socio encontrarSocio(String rut) {
+
+        for (Socio socio : EjecucionAplicacion.getSocios()) {
+            if (socio.getRut().equals(rut)) {
+                return socio;
+            }
+        }
+
+        return null;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btn_buscar;
+    private javax.swing.JButton btn_volver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JMenuItem mnt_volver;
+    private javax.swing.JTextField txt_cuotas;
+    private javax.swing.JTextField txt_rut;
     // End of variables declaration//GEN-END:variables
 }

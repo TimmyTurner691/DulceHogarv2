@@ -101,6 +101,11 @@ public class EjecucionAplicacion extends javax.swing.JFrame {
 
         mnt_numero.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnt_numero.setText("Consultar N* Cuotas por Cancelar");
+        mnt_numero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnt_numeroActionPerformed(evt);
+            }
+        });
         jMenu2.add(mnt_numero);
 
         jMenuBar1.add(jMenu2);
@@ -164,6 +169,11 @@ public class EjecucionAplicacion extends javax.swing.JFrame {
         new MontoTotal().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_mnt_consultarActionPerformed
+
+    private void mnt_numeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnt_numeroActionPerformed
+        new ConsultarNumeroCuotas().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_mnt_numeroActionPerformed
 
     /**
      * @param args the command line arguments

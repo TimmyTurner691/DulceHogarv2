@@ -204,6 +204,7 @@ public class CancelarCuota extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbuttbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttbuscarActionPerformed
@@ -252,33 +253,38 @@ public class CancelarCuota extends javax.swing.JFrame {
 
     private void jbuttpagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttpagarActionPerformed
         // TODO add your handling code here:
-        int monto = Integer.parseInt(txt_amount.getText().replace(".", ""));
-        int cantidadCuotas = Integer.parseInt(txt_numcuota.getText());
-        
-        if (monto <= 0 || cantidadCuotas <= 0) {
-            JOptionPane.showMessageDialog(null, "La cuota y el monto"
-                    + "deben ser mayores a 0", 
-                    "Error", 
-                    JOptionPane.ERROR_MESSAGE);
-        }
-        
+        try {
+            int monto = Integer.parseInt(txt_amount.getText().replace(".", ""));
+            int cantidadCuotas = Integer.parseInt(txt_numcuota.getText());
 
-        String RUT = txt_rut.getText();
+            if (monto <= 0 || cantidadCuotas <= 0) {
+                JOptionPane.showMessageDialog(null, "La cuota y el monto"
+                        + " deben ser mayores a 0", 
+                        "Error", 
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            String RUT = txt_rut.getText();
         
-        Optional<Socio> socioEncontrado = EjecucionAplicacion.getSocios()
-                .stream()
-                .filter(socio -> socio.getRut().equals(RUT))
-                .findFirst();
-        
-    
-        socioEncontrado.ifPresent(socio -> socio.cancelarCuota(monto));
-        
-        JOptionPane.showMessageDialog(
-            null, 
-            "¡Cuota pagada con exito!", 
-            "Exito!", 
-            JOptionPane.INFORMATION_MESSAGE
-        );
+            Optional<Socio> socioEncontrado = EjecucionAplicacion.getSocios()
+                    .stream()
+                    .filter(socio -> socio.getRut().equals(RUT))
+                    .findFirst();
+
+
+            socioEncontrado.ifPresent(socio -> socio.cancelarCuota(monto, cantidadCuotas));
+
+            JOptionPane.showMessageDialog(
+                null, 
+                "¡Cuota pagada con exito!", 
+                "Exito!", 
+                JOptionPane.INFORMATION_MESSAGE
+            );
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "La cuota y el monto"
+                        + " deben ser mayores a 0", 
+                        "Error", 
+                        JOptionPane.ERROR_MESSAGE);
+        }
         
         new EjecucionAplicacion().setVisible(true);
         this.setVisible(false);

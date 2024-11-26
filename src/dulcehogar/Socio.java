@@ -19,6 +19,7 @@ public class Socio {
     private String telefono;
     private int valorCuota;
     private int cantidadAportada;
+    private int numeroCuota;
 
     public Socio(int numeroSocio, String rut) {
         this.numeroSocio = numeroSocio;
@@ -31,11 +32,14 @@ public class Socio {
         this.telefono = "";
         this.valorCuota = 0;
         this.cantidadAportada = 0;
+        this.numeroCuota = 0;
     }
 
-    public void cancelarCuota(int monto) {
+    public void cancelarCuota(int monto, int numero) {
         this.setValorCuota(monto);
         this.cantidadAportada += this.valorCuota;
+        this.numeroCuota = numero - 1;
+        
     }
     
     public int getNumeroSocio() {
@@ -105,6 +109,16 @@ public class Socio {
     public int getCantidadAportada() {
         return cantidadAportada;
     }
+
+    public int getNumeroCuota() {
+        return numeroCuota;
+    }
+
+    public void setNumeroCuota(int numeroCuota) {
+        this.numeroCuota = numeroCuota;
+    }
+    
+    
     public  String showSocio() {
         return "Número de Socio: " + numeroSocio + "\n" +
                "RUT: " + rut + "\n" +
